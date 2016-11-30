@@ -2,19 +2,22 @@ package test;
 
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public abstract class AbstractTest {
-
-
+/**
+ * Created by olga on 30.11.16.
+ */
+public abstract class TestCommon {
+    public WebDriver driver;
+    public WebDriverWait wait;
     @Before
     public void start() {
-        WebDriver driver = new FirefoxDriver(caps);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        System.setProperty("webdriver.gecko.driver","/home/olga/geckodriver");
+        driver = new FirefoxDriver();
+        wait = new WebDriverWait(driver, 10);
 
     }
 
